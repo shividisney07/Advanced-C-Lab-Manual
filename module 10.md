@@ -9,12 +9,44 @@ Algorithm:
 4.	Call the search function and perform other linked list operations as needed.
  
 Program:
+```
+struct Node{
+    int data; 
+    struct Node *next;
+}*head;
 
-//type your code here
+void search(int data)
+{
+ 
+ struct Node*temp=head;
+ int flag=0;
+ int i=0;
+ while(temp->data!=data)
+ {
+     i++;
+     if(temp->next!=NULL)
+     temp=temp->next;
+     else break;
+     
+ }
+ if(temp->data==data)
+ {
+     printf("item %d found at location %d",data,i+1);
+     flag=1;
+ }
+ if(flag==0)
+ {
+     printf("Item not found");
+ }
+ 
+    
+}
+```
 
 Output:
 
-//paste your output here
+
+<img width="1032" height="653" alt="image" src="https://github.com/user-attachments/assets/34726bee-b65e-4b93-8232-cb5d62ee2ed0" />
 
 
 
@@ -34,13 +66,37 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+struct Node{
+    int data; 
+    struct Node *next;
+}*head;
+
+
+void insert(int data)
+{
+    struct Node* n=(struct Node*)malloc(sizeof(struct Node));
+    struct Node* temp=head;
+    n->data=data;
+    n->next=NULL;
+    if(head==NULL){
+        
+        head=n;
+    }else{
+        while(temp->next!=NULL){
+            temp=temp->next;
+        }
+        temp->next=n;
+        
+    }
+}
+```
 
 Output:
 
-//paste your output here
 
- 
+ <img width="562" height="743" alt="image" src="https://github.com/user-attachments/assets/61b74f1c-26ab-4de0-bad1-a91a16831960" />
+
 Result:
 Thus, the program to insert a node in a linked list is verified successfully.
 
@@ -58,11 +114,30 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+struct Node
+{
+    struct Node *prev;
+    struct Node *next;
+    int data;
+}*head;
+
+void display()
+{
+    struct Node* temp=head;
+    while(temp!=NULL)
+    {
+        printf("%d\n",temp->data);
+        temp=temp->next;
+    }
+    
+}
+```
 
 Output:
 
-//paste your output here
+<img width="600" height="768" alt="image" src="https://github.com/user-attachments/assets/df2054c1-52ef-462f-90d3-bcfc43e14e69" />
+
 
 
 Result:
@@ -83,11 +158,36 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+struct Node
+{
+    struct Node *prev;
+    struct Node *next;
+    float data;
+}*head;
+
+void insert(float data)
+{
+    struct Node* n=(struct Node*)malloc(sizeof(struct Node));
+    struct Node* temp=head;
+    n->data=data;
+    n->next=NULL;
+    if(head==NULL){
+        head=n;
+        return;
+    }
+    while(temp->next!=NULL){
+        temp=temp->next;
+    }
+    temp->next=n;
+    
+    
+}
+```
 
 Output:
+<img width="471" height="538" alt="image" src="https://github.com/user-attachments/assets/243b4ff2-a12c-45f6-9418-bff29392993d" />
 
-//paste your output here
 
 
 Result:
@@ -125,12 +225,83 @@ o	If the element is not found in any node, print a message indicating the elemen
 
 Program:
 
-//type your code here
+```
+
+struct Node
+{
+    int data; 
+    struct Node *next;
+}*head;
+void display()
+{
+    struct Node* temp=head;
+    while(temp!=NULL)
+    {
+        printf("%d ",temp->data);
+        temp=temp->next;
+    }
+}
+void insert(int data)
+{
+    struct Node* temp=head;
+    struct Node* ptr=(struct Node*)malloc(sizeof(struct Node));
+    ptr->data=data;
+    ptr->next=NULL;
+    if(head==NULL)
+    {
+        head=ptr;
+    }else
+    {
+        while(temp->next!=NULL)        {
+            temp=temp->next;
+        }
+        temp->next=ptr;
+    }
+}
+void search(int data)
+{
+    int i=1;
+    struct Node* temp=head;
+    if(head==NULL)
+    {
+        printf("Elements not found");
+    }else
+    {
+        while(temp!=NULL)
+        {
+            
+            if(temp->data==data)
+            {
+                printf("item %d found at location %d\n",data,i);
+                return;
+            }
+            i++;
+            temp=temp->next;
+        }
+        printf("Item not found\n");
+    }
+}
+void delete()
+{
+    struct Node* temp=head;
+    if(head==NULL)
+    {
+        printf("UNDERFLOW");
+    }else
+    {
+        head=head->next;
+        free(temp);
+        printf("Node deleted\n");
+    }
+    
+}
+```
 
 Output:
 
-//paste your output here
 
+
+<img width="767" height="626" alt="image" src="https://github.com/user-attachments/assets/94884658-ccaa-4e53-a3bd-81532275344e" />
 
 
 
